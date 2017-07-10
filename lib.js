@@ -20,7 +20,7 @@ var parseStandupOutput = (stdout) => {
 
 var getOpenChromeCommandForRepo = (repoName, commitHashes) => {
 
-  var urls = commitHashes.map(hash => `https://github.com/gimi-org/${repoName}/commit/${hash}`)
+  var urls = commitHashes.reverse().map(hash => `https://github.com/gimi-org/${repoName}/commit/${hash}`)
   return `chrome --new-window ${urls.join(' ')}`
 }
 
