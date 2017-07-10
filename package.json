@@ -4,8 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "postinstall": "sudo npm i -g chrome-cli",
-    "standup": "cd .. && git standup"
+    "postinstall": "sudo npm i -g chrome-cli && npm i -g git-standup",
+    "start": "node index.js"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",

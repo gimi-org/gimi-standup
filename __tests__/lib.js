@@ -13,9 +13,26 @@ c45c094 - Version Bump (4 hours ago) <andersback>
 25c7b17 - Version Bump (17 hours ago) <andersback>
 be47aa8 - hasSeenCookieWarning = true (17 hours ago) <andersback>`
 
-var {parseStandupOutput} = require('../index.js')
+var {parseStandupOutput, getOpenChromeCommandForRepo} = require('../lib')
 
 it('can parse test output', () => {
-  var res = parseStandupOutput(null, testoutput, null)
-  console.log(res)
+  expect(parseStandupOutput(testoutput)).toMatchSnapshot()
+
+})
+
+it('getOpenChromeCommandForRepo', () => {
+  var whatever = { 'gimi-app': [ '9550abffd', '2bed7fc10' ],
+      'gimi-web': [ '1965f40',
+         '17581b4',
+         'c45c094',
+         '67f7f12',
+         '68ba48f',
+         '48e9082',
+         '1b4326f',
+         '6c36f10',
+         '25c7b17',
+         'be47aa8' ]
+       }
+
+  expect(getOpenChromeCommandForRepo('gimi-app', whatever['gimi-app'])).toMatchSnapshot()
 })

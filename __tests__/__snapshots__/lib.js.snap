@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`can parse test output 1`] = `
+Object {
+  "gimi": Array [
+    "9550abffd",
+    "2bed7fc10",
+  ],
+  "gimi-web": Array [
+    "1965f40",
+    "17581b4",
+    "c45c094",
+    "67f7f12",
+    "68ba48f",
+    "48e9082",
+    "1b4326f",
+    "6c36f10",
+    "25c7b17",
+    "be47aa8",
+  ],
+}
+`;
+
+exports[`getOpenChromeCommandForRepo 1`] = `"chrome --new-window https://github.com/gimi-org/gimi-app/commit/9550abffd https://github.com/gimi-org/gimi-app/commit/2bed7fc10"`;
