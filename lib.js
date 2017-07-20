@@ -12,14 +12,19 @@ var parseStandupOutput = (stdout) => {
 
     if(!repo) return
     if(!res[repo]) res[repo] = []
-    var commitHash = x.split(' - ')[0]
-    res[repo].push(commitHash)
+    var commitHash
+
+    try {
+      if(x.includes('- index on')) commitHash = x.split('- index on')[1].split(':')[1].split(' ')[1]
+      else commitHash = x.split(' - ')[0]
+      if(!commitHash) return
+      res[repo].push(commitHash)
+    } catch (e) {}
   })
   return res
 }
 
 var getOpenChromeCommandForRepo = (repoName, commitHashes) => {
-
   var urls = commitHashes.reverse().map(hash => `https://github.com/gimi-org/${repoName}/commit/${hash}`)
   return `chrome --new-window ${urls.join(' ')}`
 }
