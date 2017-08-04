@@ -10,34 +10,25 @@ exec(`cd ${i18nPath} && git fetch`, (err, stdout) => {
   exec(standUpCmd, (err, stdOut) => {
     console.log(stdOut)
     stdOut = parseStandupOutput(stdOut)
-    Object.keys(stdOut).forEach(key => {
-      commits = commits + stdOut[key].length
-    })
+    Object.keys(stdOut).forEach(key => commits = commits + stdOut[key].length)
+
     Object.keys(stdOut).forEach(key => {
       var cmd = getOpenChromeCommandForRepo(key, stdOut[key])
       exec(cmd)
     })
+
+    setTimeout(() => exec(`chrome --new-window ${getAnimal(commits)}`), 1000)
   })
-  setTimeout(() => {
-    var animal
-    switch (true) {
-      case commits <= 5:
-        animal = './img/5.jpg'
-        break;
-      case commits <= 10:
-        animal = './img/4.jpg'
-        break;
-      case commits <= 15:
-        animal = './img/3.jpg'
-        break;
-      case commits <= 20:
-        animal = './img/2.jpg'
-        break;
-      case commits <= 25:
-        animal = './img/1.jpg'
-        break;
-      default: animal = './img/5.jpg'
-    }
-    console.warn(animal)
-    exec(`chrome --new-window ${animal}`)}, 500)
 })
+
+var getAnimal = (commits) => {
+  var animal
+  switch (true) {
+    case commits <= 5: return './img/5.jpg'
+    case commits <= 10: return './img/4.jpg'
+    case commits <= 15: return './img/3.jpg'
+    case commits <= 20: return './img/2.jpg'
+    case commits <= 25: return './img/1.jpg'
+    default: return './img/5.jpg'
+  }
+}
