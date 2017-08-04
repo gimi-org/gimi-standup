@@ -29,6 +29,7 @@ var getOpenChromeCommandForRepo = (repoName, commitHashes) => {
   return `chrome --new-window ${urls.join(' ')}`
 }
 
+
 module.exports = {
   parseStandupOutput,
   getOpenChromeCommandForRepo
