@@ -1,6 +1,6 @@
 var fs = require('fs')
 const { exec } = require('child_process')
-var standUpCmd = 'cd .. && git-standup -m 2'
+var standUpCmd = 'cd .. && gimi-standup/node_modules/git-standup/git-standup -m 2 -r origin -a Mathias'
 var {parseStandupOutput, getOpenChromeCommandForRepo} = require('./lib')
 var i18nPath = '../gimi-i18n'
 var commits = 0

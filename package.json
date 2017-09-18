@@ -4,11 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "postinstall": "sudo npm i -g chrome-cli && sudo npm i -g git-standup",
+    "postinstall": "sudo npm i -g chrome-cli",
     "start": "node index.js"
   },
   "dependencies": {
     "chrome-cli": "^1.1.1",
-    "git-standup": "^2.1.8"
+    "git-standup": "git+https://github.com/gimi-org/git-standup"
   }
 }
