@@ -29,6 +29,6 @@ var getAnimal = (commits) => {
     case commits <= 15: return './img/3.jpg'
     case commits <= 20: return './img/2.jpg'
     case commits <= 25: return './img/1.jpg'
-    default: return './img/5.jpg'
+    default: return './img/1.jpg'
   }
 }
