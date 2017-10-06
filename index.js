@@ -17,7 +17,7 @@ exec(`cd ${i18nPath} && git fetch`, (err, stdout) => {
       exec(cmd)
     })
 
-    setTimeout(() => exec(`chrome --new-window ${getAnimal(commits)}`), 1000)
+    // setTimeout(() => exec(`chrome --new-window ${getAnimal(commits)}`), 1000)
   })
 })
 
