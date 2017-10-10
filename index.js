@@ -8,7 +8,6 @@ if(!fs.existsSync(i18nPath)) throw new Error(`Cant find: ${i18nPath}`)
 exec(`cd ${i18nPath} && git fetch`, (err, stdout) => {
   console.log(`${standUpCmd} ...`)
   exec(standUpCmd, (err, stdOut) => {
-    console.log(stdOut)
     stdOut = parseStandupOutput(stdOut)
     Object.keys(stdOut).forEach(key => commits = commits + stdOut[key].length)
 

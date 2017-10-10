@@ -4,7 +4,7 @@ var parseStandupOutput = (stdout) => {
 
   var repo = ''
   stdout.forEach(x => {
-    var isRepo = x.includes('/gimi')
+    var isRepo = x.startsWith('/')
     if(isRepo) {
       repo = x.split('/').pop()
       return
@@ -21,6 +21,8 @@ var parseStandupOutput = (stdout) => {
       res[repo].push(commitHash)
     } catch (e) {}
   })
+  Object.keys(res).forEach(key => !key.includes('gimi') ? delete res[key] : undefined)
+  console.log('repos', res)
   return res
 }
 
