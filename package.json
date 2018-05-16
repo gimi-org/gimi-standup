@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "chrome-cli": "^1.1.1",
-    "git-standup": "git+https://github.com/gimi-org/git-standup"
+    "git-standup": "git+https://github.com/gimi-org/git-standup",
+    "npm": "^6.0.1"
   }
 }
