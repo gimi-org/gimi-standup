@@ -1,9 +1,9 @@
 var fs = require('fs')
 const { exec } = require('child_process')
 const daysCommits = process.argv[2]
-var standUpCmd = 'cd .. && gimi-standup/node_modules/git-standup/git-standup -m 1 -r origin'
-if (daysCommits)
-standUpCmd = `cd .. && gimi-standup/node_modules/git-standup/git-standup -m 1 -r origin -d ${daysCommits}`
+const author = process.argv[3]
+var standUpCmd = `cd .. && gimi-standup/node_modules/git-standup/git-standup -m 1 -r origin -d ${daysCommits || 1}`
+if (author) standUpCmd = `cd .. && gimi-standup/node_modules/git-standup/git-standup -m 1 -r origin -d ${daysCommits || 1} -a '${getAuthorName(author)}'`
 var {parseStandupOutput, getOpenChromeCommandForRepo} = require('./lib')
 var i18nPath = '../gimi-i18n'
 var commits = 0
@@ -32,5 +32,22 @@ var getAnimal = (commits) => {
     case commits <= 20: return './img/2.jpg'
     case commits <= 25: return './img/1.jpg'
     default: return './img/1.jpg'
+  }
+}
+
+function getAuthorName (author) {
+  switch (true) {
+    case author === 'hristo':
+      return 'hstamenov3'
+    case author === 'matzie':
+      return 'Mathias Eriksson'
+    case author === 'martin':
+      return 'Martin'
+    case author === 'arvin':
+      return 'Arvin Behshad'
+    case author === 'anders':
+      return 'anback'
+    default:
+      return 'all'
   }
 }
