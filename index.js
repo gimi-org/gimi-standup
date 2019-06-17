@@ -47,6 +47,8 @@ function getAuthorName (author) {
       return 'Arvin Behshad'
     case author === 'anders':
       return 'anback'
+    case author === 'onur':
+      return 'onurersel'
     default:
       return 'all'
   }
